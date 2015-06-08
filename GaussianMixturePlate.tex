@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,positioning}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+  \tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+  \tikzstyle{subj} = [circle, minimum width=8pt, fill, inner sep=0pt]
+\tikzstyle{connect}=[-latex, thick]
+\tikzstyle{box}=[rectangle, draw=black!100]
+ \node[subj] (pi) [label=below:$\pi$]{};
+  \node[main, fill = white!100]  (zi) [right=of pi] [label=below:$z_i$] { };
+  \node[main] (xi) [right=of zi,label=below:$x_i$] { };
+  \node[main] (muk) [right=of xi,label=below:$\mu_k$] { };
+  \node[subj] (sigma) [above=of xi, label=above:$\sigma^2$] { };
+  \node[subj] (omega) [right=of muk,label=below:$\omega$] { };
+  \path (pi) edge [connect] (zi)
+        (zi) edge [connect] (xi)
+        (muk) edge [connect] (xi)
+        (sigma) edge [connect] (xi)
+        (omega) edge [connect] (muk);
+  \node[rectangle, inner sep=0mm, fit= (zi) (xi),label=above right:n, xshift=13mm] {};
+  \node[rectangle, inner sep=4.4mm,draw=black!100, fit= (zi) (xi)] {};
+  \node[rectangle, inner sep=0mm, fit= (muk), label=above right:K, xshift=-1mm] {};
+  \node[rectangle, inner sep=4.4mm, draw=black!100, fit = (muk)] {};
+  \end{tikzpicture}
+\end{document}

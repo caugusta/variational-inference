@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,positioning}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+\tikzstyle{connect}=[-latex, thick]
+\tikzstyle{box}=[rectangle, draw=black!100]
+  %\node[main, fill = white!100] (alpha) [label=below:$\alpha$] { };
+  %\node[main] (theta) [right=of alpha,label=below:$\theta$] { };
+  \node[main, fill=white!100](z_i) [label=below:$z_$]{};
+  %\node[main] (z) [right=of theta,label=below:z] {};
+  \node[main] (beta) [right=of z_i,label=below:$\beta$] { };
+  \node[main, fill = black!10] (w) [right=of z,label=below:w] { };
+  \path (alpha) edge [connect] (theta)
+        (theta) edge [connect] (z)
+        (z) edge [connect] (w)
+        (beta) edge [connect] (w);
+  \node[rectangle, inner sep=0mm, fit= (z) (w),label=below right:N, xshift=13mm] {};
+  \node[rectangle, inner sep=4.4mm,draw=black!100, fit= (z) (w)] {};
+  \node[rectangle, inner sep=4.6mm, fit= (z) (w),label=below right:M, xshift=12.5mm] {};
+  \node[rectangle, inner sep=9mm, draw=black!100, fit = (theta) (z) (w)] {};
+\end{tikzpicture}
+\end{document}

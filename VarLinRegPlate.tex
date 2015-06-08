@@ -1,0 +1,33 @@
+\documentclass{article}
+
+% Thanks to: http://stackoverflow.com/questions/2701902/standalone-diagrams-with-tikz
+% and thanks to: http://stats.stackexchange.com/questions/16750/software-for-drawing-bayesian-networks-graphical-models
+
+%
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,positioning}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+\tikzstyle{connect}=[-latex, thick]
+\tikzstyle{box}=[rectangle, draw=black!100]
+    \node[main, fill=white!100](tau) [label=above:$\tau$] { };
+  %\note[main, fill=white!100](tau) [label=below:$\tau$] { };
+  \node[main] (beta) [right=of tau,label=above:$\beta$] { };
+  \node[main, fill = black!10] (y) [right=of beta,label=above:$y_i$] { };
+  \path (tau) edge [connect] (beta)
+        (beta) edge [connect] (y);
+  \node[rectangle, inner sep=0mm, fit=(y),label=below right:n, xshift=1mm] {};
+  \node[rectangle, inner sep=5mm,draw=black!100, fit= (y)] {};
+  %%\node[rectangle, inner sep=4.6mm, fit= (z) (w),label=below right:M, xshift=12.5mm] {};
+%%  \node[rectangle, inner sep=9mm, draw=black!100, fit = (theta) (z) (w)] {};
+\end{tikzpicture}
+\end{document}
