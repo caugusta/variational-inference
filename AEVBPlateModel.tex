@@ -1,0 +1,38 @@
+\documentclass{article}
+
+% Thanks to: http://stackoverflow.com/questions/2701902/standalone-diagrams-with-tikz
+% and thanks to: http://stats.stackexchange.com/questions/16750/software-for-drawing-bayesian-networks-graphical-models
+
+%
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,positioning}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+\tikzstyle{connect}=[-latex, thick]
+\tikzstyle{box}=[rectangle, draw=black!100]
+  \node[main, fill=white!100](z) [label=below:$z_i$] { };
+  \node[main, fill, circle, scale=0.1] (beta) [above=of z,label=above:$\beta$] { };
+  \node[main, fill = black!10] (x) [right=of z,label=below:$x_i$] { };
+  \node[main, fill, circle, scale=0.1] (phi) [left=of z, label=below:$\phi$]{ };
+  \draw [dashed, ->] (x) to[bend right] node {} (z);
+  \draw [dashed, ->] (phi) to node {} (z);
+  \path (beta) edge [connect] (z)
+        (beta) edge [connect] (x)
+        %(phi) edge [connect] (z)
+        (z) edge [connect] (x);
+        %(x) -- (z);
+  \node[rectangle, inner sep=0mm, fit= (z) (x),label=below right:n, xshift=13mm] {};
+  \node[rectangle, inner sep=4.4mm,draw=black!100, fit= (z) (x)] {};
+  %\node[rectangle, inner sep=4.6mm, fit= (z) (w),label=below right:M, xshift=12.5mm] {};
+%  \node[rectangle, inner sep=9mm, draw=black!100, fit = (theta) (z) (w)] {};
+\end{tikzpicture}
+\end{document}
