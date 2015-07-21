@@ -1,0 +1,51 @@
+\documentclass{article}
+
+% Thanks to: http://stackoverflow.com/questions/2701902/standalone-diagrams-with-tikz
+% and thanks to: http://stats.stackexchange.com/questions/16750/software-for-drawing-bayesian-networks-graphical-models
+
+%
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,positioning}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+    \tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+\tikzstyle{connect}=[-latex, thick]
+\tikzstyle{box}=[rectangle, draw=black!100]
+  \node[main, fill=white!100](x) [label=below:$x$] { };
+  \node[main, fill =white!100] (h) [right=of x,label=below:$h$] { };
+  \node[main, fill = white!100] (mu) [right=of h,label=above:$\mu$] { };
+   \node[main, fill = white!100] (sigma) [below=of mu,label=below:${\rm{log}} \sigma^2$] { };
+  % \node[main, fill = black!10] (N) [right=of sigma,label=below:${\rm{log}} N(\mu, \sigma^2 {\mathbf{I}})$] { };
+  \node[main, fill = white!100] (N) [right=of sigma,label=below:${\rm{log}} N$] { };
+     \node[main, fill = white!100] (z) [right=of N,label=above:$z$] { };
+  %\draw [dashed, ->] (x) to[bend right] node {} (z);
+ % \draw [dashed, ->] (phi) to node {} (z);
+ 
+ \draw[->] (x) -- node[auto] {$\displaystyle W_1, b_1$} (h);
+ \draw[->] (h) -- node[auto] {$\displaystyle W_2, b_2$} (mu);
+ \draw[->] (h) -- node[auto] {$\displaystyle W_3, b_3$} (sigma);
+ \draw[->] (mu) -- node[auto] {} (N);
+ \draw[->] (sigma) -- node[auto] {} (N);
+  \draw[->] (N) -- node[auto] {} (z);
+%        (h) edge [connect] (mu)
+%        (h) edge [connect] (sigma)
+%        (mu) edge [connect] (N)
+%        (sigma) edge [connect] (N)
+%        (N) edge [connect] (x);
+        %(phi) edge [connect] (z)
+        %(z) edge [connect] (x);
+        %(x) -- (z);
+%  \node[rectangle, inner sep=0mm, fit= (z) (x),label=below right:n, xshift=13mm] {};
+ % \node[rectangle, inner sep=4.4mm,draw=black!100, fit= (z) (x)] {};
+  %\node[rectangle, inner sep=4.6mm, fit= (z) (w),label=below right:M, xshift=12.5mm] {};
+%  \node[rectangle, inner sep=9mm, draw=black!100, fit = (theta) (z) (w)] {};
+\end{tikzpicture}
+\end{document}
