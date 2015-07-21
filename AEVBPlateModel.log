@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 JUL 2015 17:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  20 JUL 2015 19:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -977,7 +977,7 @@ Preview: Tightpage -32891 -32891 32891 32891
 (./AEVBPlateModel.aux) ) 
 Here is how much of TeX's memory you used:
  24145 strings out of 493089
- 549572 string characters out of 6134842
+ 549578 string characters out of 6134842
  546671 words of memory out of 5000000
  27262 multiletter control sequences out of 15000+600000
  5503 words of font info for 22 fonts, out of 8000000 for 9000
@@ -987,7 +987,7 @@ Here is how much of TeX's memory you used:
 amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr10.pfb>
-Output written on AEVBPlateModel.pdf (1 page, 28920 bytes).
+Output written on AEVBPlateModel.pdf (1 page, 28774 bytes).
 PDF statistics:
  47 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream

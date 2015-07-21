@@ -20,13 +20,13 @@
 \tikzstyle{connect}=[-latex, thick]
 \tikzstyle{box}=[rectangle, draw=black!100]
   \node[main, fill=white!100](z) [label=below:$z_i$] { };
-  \node[main, fill, circle, scale=0.1] (beta) [above=of z,label=above:$\beta$] { };
+  \node[main, fill, circle, scale=0.1] (theta) [above=of z,label=above:$\theta$] { };
   \node[main, fill = black!10] (x) [right=of z,label=below:$x_i$] { };
   \node[main, fill, circle, scale=0.1] (phi) [left=of z, label=below:$\phi$]{ };
   \draw [dashed, ->] (x) to[bend right] node {} (z);
   \draw [dashed, ->] (phi) to node {} (z);
-  \path (beta) edge [connect] (z)
-        (beta) edge [connect] (x)
+  \path (theta) edge [connect] (z)
+        (theta) edge [connect] (x)
         %(phi) edge [connect] (z)
         (z) edge [connect] (x);
         %(x) -- (z);
